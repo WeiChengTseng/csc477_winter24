@@ -26,7 +26,7 @@ class OccupancyGridMap:
         self.map_info.resolution = meters_per_cell
         self.map_info.width = num_rows
         self.map_info.height = num_cols
-    
+
         self.map_info.origin.position.x = grid_origin_in_map_frame[0]
         self.map_info.origin.position.y = grid_origin_in_map_frame[1]
         self.map_info.origin.position.z = grid_origin_in_map_frame[2]
@@ -49,7 +49,7 @@ class OccupancyGridMap:
         return (row, col)
 
     def log_odds_ratio_to_belief(self, lor):
-        return 1.0 - 1.0/(1 + np.exp(lor))
+        return 1.0 - 1.0 / (1 + np.exp(lor))
 
     def get_map_as_ros_msg(self, timestamp, frame_id):
         self.seq+= 1

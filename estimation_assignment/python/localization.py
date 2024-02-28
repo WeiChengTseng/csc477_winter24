@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-import rospy
-import tf
-import tf.transformations as tr
-from std_msgs.msg import String, Header, ColorRGBA
-from nav_msgs.msg import OccupancyGrid, MapMetaData, Odometry
-from geometry_msgs.msg import Twist, PoseStamped, Point
-from sensor_msgs.msg import LaserScan
-from visualization_msgs.msg import Marker
+# import rospy
+# import tf
+# import tf.transformations as tr
+# from std_msgs.msg import String, Header, ColorRGBA
+# from nav_msgs.msg import OccupancyGrid, MapMetaData, Odometry
+# from geometry_msgs.msg import Twist, PoseStamped, Point
+# from sensor_msgs.msg import LaserScan
+# from visualization_msgs.msg import Marker
 from math import sqrt, cos, sin, pi, atan2
 from threading import Thread, Lock
 from math import pi, log, exp
@@ -240,9 +240,8 @@ if __name__ == "__main__":
     
     resulting_states = solver.localize()
 
-
     print("Norm of difference between estimated states and true states")
-    for t in xrange(num_timesteps):
+    for t in range(num_timesteps):
         print(np.linalg.norm(resulting_states[t].diff(states[t])))
         
     true_rx = [r.x for r in states]
@@ -279,4 +278,3 @@ if __name__ == "__main__":
             plt.plot([l.x, states[t].x], [l.y, states[t].y], 'k--', alpha=0.3)
         
     plt.show()
-    
